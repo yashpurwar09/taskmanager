@@ -1,0 +1,68 @@
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px 20px 20px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #FFB7B7 0%, #727272 100%), radial-gradient(60.91% 100% at 50% 0%, #FFD1D1 0%, #260000 100%), linear-gradient(238.72deg, #FFDDDD 0%, #720066 100%), linear-gradient(127.43deg, #00FFFF 0%, #FF4444 100%), radial-gradient(100.22% 100% at 70.57% 0%, #FF0000 0%, #00FFE0 100%), linear-gradient(127.43deg, #B7D500 0%, #3300FF 100%);
+  background-blend-mode: screen, overlay, hard-light, color-burn, color-dodge, normal;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  position: relative;
+  width: 196px;
+}
+
+
+.form-group input:valid ~label,
+.form-group input:focus ~label {
+  color: #45f3ff;
+  transform: translateX(-10px) translateY(-34px);
+  font-size: 0,75em;
+}
+
+.form-group input {
+   position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+
+.form-group button {
+ background-color: #444141;
+ border-radius: 4px;
+ color: #fff;
+ cursor: pointer;
+ padding: 10px 30px;
+ font-size: 18px;
+ font-weight: bold;
+ letter-spacing: 1px;
+ border: none;
+}
+
+
+.form-group button:hover {
+ background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
+ animation: slidernbw 5s linear infinite;
+ color: #000;
+}
+
+@keyframes slidernbw {
+ to {
+  background-position: 20vw;
+ }
+}
+

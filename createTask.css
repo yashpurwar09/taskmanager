@@ -1,0 +1,82 @@
+.container {
+    width: 500px;
+    max-height: auto;
+    margin: 0px auto;
+    padding: 20px 20px 20px 20px;
+    border: 1px solid #ccc;
+    border-radius: 6% 58% 74% 6% / 8% 35% 0% 7% ;
+    background: linear-gradient(180deg, #FFB7B7 0%, #727272 100%), radial-gradient(60.91% 100% at 50% 0%, #FFD1D1 0%, #260000 100%), linear-gradient(238.72deg, #FFDDDD 0%, #720066 100%), linear-gradient(127.43deg, #00FFFF 0%, #FF4444 100%), radial-gradient(100.22% 100% at 70.57% 0%, #FF0000 0%, #00FFE0 100%), linear-gradient(127.43deg, #B7D500 0%, #3300FF 100%);
+    background-blend-mode: screen, overlay, hard-light, color-burn, color-dodge, normal;
+}
+
+.search-container {
+    max-width: 500px;
+    max-height: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#search-input {
+  padding: 10px;
+  width: 480px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+#title {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#description,
+input[type="text"],
+select {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    }
+
+.filter-pane {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 5px;
+  width: 480px;
+}
+
+
+.filter-pane h3 {
+  margin-top: 0;
+}
+
+.filter {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
