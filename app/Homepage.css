@@ -1,0 +1,22 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.feature {
+    margin-bottom: 30px;
+}
+
+.feature h2 {
+    margin-top: 0;
+}
+
+.feature p {
+    font-size: 16px;
+    line-height: 1.5;
+}
