@@ -1,0 +1,62 @@
+{% extends 'app/Base.html' %}
+
+{% load static %}
+
+{% block title %} Register {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/Register.css' %}?version=5">
+<link rel="stylesheet" type="text/css" href="{% static 'app/Button.css' %}?version=5">
+{% endblock %}
+
+{% block body %}
+<h1>Register</h1>
+<div class="container">
+    <form id="login-form" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        {{ form.firstName }}
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        {{ form.lastName }}
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact:</label>
+        {{ form.contact }}
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        {{ form.email }}
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        {{ form.password }}
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Re-enter Password:</label>
+        <input type="password" id="confirm-password" required>
+      </div>
+      <button class="btn" type="submit">
+          <strong>REGISTER</strong>
+          <div class="container-stars">
+          <div class="stars"></div>
+          </div>
+
+          <div class="glow">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          </div>
+      </button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{%url 'app/Register.js' %}"></script>
+{% endblock %}

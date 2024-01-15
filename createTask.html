@@ -1,0 +1,59 @@
+{% extends 'app/Base.html' %}
+
+{% load static %}
+
+{% block title %} LogIn {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/createTask.css' %}?version=2">
+<link rel="stylesheet" type="text/css" href="{% static 'app/Button.css' %}">
+{% endblock %}
+
+{% block body %}
+<h1>Create Task</h1>
+<div class="container">
+    {% load static %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title" >Title:</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <label for="deadline" >Deadline:</label>
+                {{ form.deadline }}
+            </div>
+            <div class="form-group" style="display:flex">
+                <label for="status" >Status:</label>
+                <label for="priority" style="margin-left:50%;">Priority:</label>
+            </div>
+            <div class="form-group" style="display:flex;">
+                {{ form.status }}
+                {{ form.priority }}
+            </div>
+            <div class="form-group">
+                <button class="btn" type="submit">
+                  <strong>CREATE</strong>
+                  <div class="container-stars">
+                    <div class="stars"></div>
+                  </div>
+
+                  <div class="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                  </div>
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_Js %}
+
+{% endblock %}
+
+

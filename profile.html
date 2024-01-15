@@ -1,0 +1,41 @@
+{% extends 'app/Base.html' %}
+{% load static %}
+
+{% block title %}Profile {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/profile.css' %}?version=19">
+{% endblock %}
+
+{% block body %}
+<div class="profile-container">
+  <img id="editIcon" src="{% static 'app/edit_icon.png' %}" alt="Image not available">
+  <h1>Profile</h1>
+  <div class="profile-details">
+    <div class="profile-picture">
+      <img id="profile-picture-preview" src="media/{{ profile }}" alt="Profile Picture">
+      <form id="form" method="POST" action="{% url 'Task_Manager_App:Profile' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.profile }}
+        <label id="profile-picture-label" for="id_profile">Upload</label>
+      </form>
+    </div>
+    <div class="profile-info">
+      <p ><span>First Name:</span> <span id="first-name" class="profile-edit" contenteditable="false">{{ data.firstName }}</span></p>
+      <p ><span>Last Name:</span> <span id="last-name" class="profile-edit">{{ data.lastName }}</span></p>
+      <p ><span>Email:</span> <span id="email" class="profile-edit">{{ data.email }}</span></p>
+      <p ><span>Contact No.:</span> <span id="contact-number" class="profile-edit">{{ data.contact }}</span></p>
+    </div>
+  </div>
+  <div class="profile-details">
+      <button id="save" style="margin-left:50px; margin-top:30px;">Save</button>
+      <a href="{% url 'Task_Manager_App:Profile' %}">
+        <button id="cancel"  style="margin-left:400px;">Cancel</button></a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_Js %}
+  <script src="{% static 'app/profile.js'%}?version=10"></script>
+{% endblock %}

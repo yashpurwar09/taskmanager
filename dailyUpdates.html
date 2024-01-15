@@ -1,0 +1,40 @@
+{% extends 'app/Base.html' %}
+
+{% block title %}Daily Updates{% endblock %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/dailyUpdates.css' %}?version=12">
+<link rel="stylesheet" type="text/css" href="{% static 'app/Button.css' %}">
+{% endblock %}
+
+{% block body %}
+<br>
+<div class="container">
+        <h1>Daily Updates</h1>
+        <div class="updates">
+            <textarea id="daily-updates" disabled >{{data.dailyUpdates}}</textarea>
+        </div>
+        <form method="post" action="{% url 'Task_Manager_App:dailyUpdates' data.id %}">
+            {% csrf_token %}
+        <div class="input-area" >
+            <textarea id="update-input" name="update" placeholder="Enter your daily update"></textarea>
+
+            <button class="btn" >
+                  <strong>UPDATE</strong>
+                  <div class="container-stars">
+                  <div class="stars"></div>
+                  </div>
+
+                  <div class="glow">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  </div>
+                </button>
+        </div>
+        </form>
+    </div>
+<br>
+<br>
+{% endblock %}

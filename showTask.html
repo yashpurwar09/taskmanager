@@ -1,0 +1,114 @@
+{% extends 'app/Base.html' %}
+
+{% load static %}
+
+{% block title %} Show Task {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/createTask.css' %}?version=5">
+<link rel="stylesheet" type="text/css" href="{% static 'app/Button.css' %}">
+{% endblock %}
+
+{% block body %}
+{% if data %}
+<h1>Tasks</h1>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search tasks...">
+    </div>
+    <br>
+    <div class="container" >
+        <div class="filter-pane">
+          <h3>Filters</h3>
+          <div class="filter">
+            <label for="status-filter">Status:</label>
+            <select id="status-filter">
+              <option value="All">All</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+            <div id="user" custom={{ user.username }}></div>
+          <div class="filter">
+            <label for="priority-filter">Priority:</label>
+            <select id="priority-filter">
+              <option value="All">All</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+        </div>
+    </div>
+<br>
+
+{% for data in data %}
+    <div class="container">
+        <form action="{% url 'Task_Manager_App:deleteTask' data.id %}" method="POST" >
+            {% csrf_token %}
+            <div class="form-group" >
+                <label class="label" for="title">Title: <span id="title">{{ data.title }}</span></label>
+            </div>
+            <div class="form-group">
+                <label class="label" for="description">Description: <span id="description">{{ data.description }}</span></label>
+            </div>
+            <div class="form-group">
+                <label class="label" for="deadline">Deadline: <span id="deadline">{{ data.deadline }}</span></label>
+            </div>
+            <div class="form-group" style="display:flex">
+                <label class="label" for="status" style="margin-right:45%;">Status: <span id="status">{{ data.status }}</span></label>
+                <label class="label" for="priority">Priority: <span id="priority">{{ data.priority }}</span></label>
+            </div>
+
+            <div style="display:flex; ">
+                <button class="btn" type="submit" name="action" value="delete">
+                  <strong>DELETE TASK</strong>
+                  <div class="container-stars">
+                  <div class="stars"></div>
+                  </div>
+
+                  <div class="glow">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  </div>
+                </button>
+
+                <button class="btn" type="submit" name="action" value="edit">
+                  <strong>EDIT TASK</strong>
+                  <div class="container-stars">
+                  <div class="stars"></div>
+                  </div>
+
+                  <div class="glow">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  </div>
+                </button>
+
+                <button class="btn" type="submit" name="action" value="dailyUpdates">
+                  <strong>DAILY UPDATES</strong>
+                  <div class="container-stars">
+                  <div class="stars"></div>
+                  </div>
+
+                  <div class="glow">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  </div>
+                </button>
+            </div>
+            <br>
+            <br>
+        </form>
+    </div>
+<br>
+
+
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+{% block extra_Js %}
+<script src="{% static 'app/js.js' %}?version=80">
+</script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'app/Base.html' %}
+
+{% load static %}
+
+{% block title %} LogIn {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/createTask.css' %}?version=3">
+<link rel="stylesheet" type="text/css" href="{% static 'app/Button.css' %}">
+{% endblock %}
+
+{% block body %}
+<h1>Edit Task</h1>
+<div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title" >Title:</label>
+                <textarea type="text" style="height:20px; resize: none" id="title" name="title" required>{{ data.title }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea type="text" style="height:20px; resize: none" id="description" name="description" required>{{ data.description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" value= {{ data.deadline }} required>
+            </div>
+            <div class="form-group" style="display:flex">
+                <label for="status" style="Margin-right:53%;">Status:</label>
+                <label for="priority">Priority:</label>
+            </div>
+            <div class="form-group" style="display:flex">
+                <select name="status" style="margin-right:80px; " value= {{ data.status }}>
+                    <option>In Progress</option>
+                    <option>Pending</option>
+                    <option>Completed</option>
+                </select>
+                <select name="priority" value= {{ data.priority }}>
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn" type="submit">
+                  <strong>CONFIRM</strong>
+                  <div class="container-stars">
+                  <div class="stars"></div>
+                  </div>
+
+                  <div class="glow">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  </div>
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_Js %}
+
+{% endblock %}
