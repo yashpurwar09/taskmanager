@@ -1,0 +1,35 @@
+{% extends 'app/Base.html'%}
+
+{% block title %}Homepage{% endblock %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/Homepage.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+        <h1>Welcome to Task Manager</h1>
+
+        <div class="feature">
+            <h2>Create Tasks</h2>
+            <p>Effortlessly create new tasks with a title, description, deadline, and status. Keep track of all your tasks in one place.</p>
+        </div>
+
+        <div class="feature">
+            <h2>Manage Tasks</h2>
+            <p>View all your tasks at a glance. Update task details, mark tasks as in progress, pending, or completed, and easily edit or delete tasks as needed.</p>
+        </div>
+
+        <div class="feature">
+            <h2>Track Daily Progress</h2>
+            <p>Stay organized by updating your daily work progress on individual tasks. Keep a record of your accomplishments and stay on top of your goals.</p>
+        </div>
+
+        <div class="feature">
+            <h2>User Registration and Login</h2>
+            <p>Secure your task management with user registration and login. Each user has their own personalized dashboard to manage their tasks efficiently.</p>
+        </div>
+    </div>
+{% endblock %}
